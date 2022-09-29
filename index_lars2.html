@@ -1,0 +1,118 @@
+Uitleg deel 1:
+
+<style> 
+
+</style>
+
+<script>
+    // VARIABELE
+    // DOM = Document Object Model
+    function mijnfunctie(){     // eventlistener
+        alert("Hij doet het!");
+        var x = 10;
+        console.log(x);
+        x++;
+        console.log(x);
+        console.log("======HIER MOET JE KIJKEN");
+        var element = document.getElementById("detitel");
+        console.log(element.innerHTML);
+        element.innerHTML = "Stuk nieuwe tekst";
+        element.style.backgroundColor = 'red';
+
+        var y = 25;
+        if (y > 10) {
+            alert("Value is groter dan 10");
+        }
+
+        var var1 = document.getElementById("tekstveldje");
+        console.log(var1.value);
+
+    }
+
+    function tweedefunctie(){
+        console.log("Dit is heel wat anders...");
+    }
+
+
+</script>
+
+<input id="tekstveldje">
+
+<h1 onclick="tweedefunctie()" id="detitel">We zijn van start</h1>
+
+<div onclick="mijnfunctie()">Hier kan ik vanalles</div>
+
+
+Opdracht 1:
+
+Maak een HTML pagina met daarop:
+1 invoerveld
+1 knop / button
+als ik op de knop klik moet hij...
+als fred is ingevuld in de h1 invullen WELKOM fred
+anders: in de h1 VERBODEN TOEGANG
+
+<script>
+    function heetWelkom(){
+        var welkomsbox = document.getElementById("detitel");
+        var deNaam = document.getElementById("invoernaam").value;
+        if(deNaam == "fred"){
+            welkomsbox.innerHTML = "Welkom "+deNaam;
+        }else{
+            welkomsbox.innerHTML = "Verboden toegang";
+        }
+        console.log(welkomsbox);
+    }
+</script>
+<hr><hr>
+<h1 id="detitel"></h1>
+<input id="invoernaam">
+<input type="button" value="Klik hier" onclick="heetWelkom()">
+
+Uitleg deel 2:
+
+--> ARRAY []
+<script>
+    let vary = 10;  // globale variabele
+    let rijtje = [5, 20, 14, 154,202,55,22];
+    function heetWelkom(){        
+        let varx = 0; // locale variabele
+        varx++;
+        vary--;
+        console.log(varx);
+        console.log(vary);
+        if(vary < 0){
+            document.getElementById("detitel").innerHTML = "je bent af";
+        }
+        console.log( rijtje[2] );
+        console.log(rijtje)
+        let vari = 0;
+        console.log(rijtje[vari]);
+        vari ++;
+        console.log(rijtje[vari]);
+        for(var x = 0 ;  x < rijtje.length   ;  x++  ){   /// loops
+            console.log("print in for loop"+x);
+            console.log(rijtje[x]);
+        }
+        // casten  parsen
+        var getal = document.getElementById("invoernaam").value;
+        getal = parseInt(getal);
+        // alert(getal + getal);
+        rijtje.push(getal);
+        console.log(rijtje);
+        toonBoodschappenlijstje();
+    }
+    function toonBoodschappenlijstje(){
+        var lijstje = document.getElementById("boodschappenoverzicht");
+        lijstje.innerHTML = "";
+        for(let x in rijtje){
+            lijstje.innerHTML += rijtje[x];
+        }
+    }
+</script>
+<hr><hr>
+<h1 id="detitel"></h1>
+<input id="invoernaam">
+<input type="button" value="Klik hier" onclick="heetWelkom()">
+<div id="boodschappenoverzicht"></div>
+
